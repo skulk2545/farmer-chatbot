@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>💬 Chat</h2>
+  <div class="card">
+    <input type="text" id="msg" placeholder="Ask a question..." style="width:80%; padding:8px;">
+    <button onclick="sendMessage()">Send</button>
+    <div id="chatbox" style="margin-top:15px;"></div>
+  </div>
+  <script>
+    function sendMessage() {
+      let msg = document.getElementById("msg").value;
+      let box = document.getElementById("chatbox");
+      box.innerHTML += `<p><b>You:</b> ${msg}</p>`;
+      fetch("/get", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({msg: msg})
+      }).then(r=>r.json()).then(data=>{
+        box.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
+      });
+      document.getElementById("msg").value = "";
+    }
+  </script>
+{% endblock %}

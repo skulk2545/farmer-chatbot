@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>☀ Weather Analysis</h2>
+  <div class="card"><h3>Weekly Forecast</h3><canvas id="weatherChart"></canvas></div>
+  <script>
+    new Chart(document.getElementById('weatherChart'), {
+      type:'line',
+      data:{ labels:["Mon","Tue","Wed","Thu","Fri"], datasets:[{label:"Temp °C", data:[28,30,27,26,29], borderColor:"#2196F3"}]}
+    });
+  </script>
+{% endblock %}

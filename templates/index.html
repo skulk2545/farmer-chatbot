@@ -97,6 +97,10 @@
       font-size: 22px;
       font-weight: bold;
       letter-spacing: 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
     }
     #chatbox {
       padding: 15px;
@@ -162,6 +166,13 @@
       background: #ff9800;
       color: white;
     }
+    select {
+      font-size: 0.9em;
+      padding: 4px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
   </style>
 </head>
 <body>
@@ -176,7 +187,17 @@
 
   <!-- 🌟 Chat Page -->
   <div class="container" id="chatContainer">
-    <header>🌾 Farmer Advisory Chatbot</header>
+    <header>
+      🌾 Farmer Advisory Chatbot
+      <select id="langSelect">
+        <option value="auto">Auto Detect</option>
+        <option value="en">English</option>
+        <option value="ml">Malayalam</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="kn">Kannada</option>
+      </select>
+    </header>
     <div id="chatbox"></div>
     <div class="input-area">
       <input type="text" id="user_input" placeholder="Ask your farming question...">
@@ -200,12 +221,13 @@
 
     function sendMessage() {
       let input = document.getElementById("user_input").value;
+      let langChoice = document.getElementById("langSelect").value;
       if (input.trim() === "") return;
 
       fetch("/get", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ msg: input })
+        body: JSON.stringify({ msg: input, lang: langChoice })
       })
       .then(res => res.json())
       .then(data => {
@@ -213,7 +235,7 @@
         chatbox.innerHTML += `<div class="message user"><b>You:</b> ${input}</div>`;
         chatbox.innerHTML += `<div class="message bot"><b>Bot:</b> ${data.reply}</div>`;
         chatbox.scrollTop = chatbox.scrollHeight;
-        speakText(data.reply);
+        speakText(data.reply, langChoice);
       });
 
       document.getElementById("user_input").value = "";
@@ -235,9 +257,13 @@
       }
     }
 
-    function speakText(text) {
+    function speakText(text, langChoice) {
       let speech = new SpeechSynthesisUtterance(text);
-      speech.lang = "en-IN";
+      if (langChoice !== "auto") {
+        speech.lang = langChoice;
+      } else {
+        speech.lang = "en-IN";
+      }
       window.speechSynthesis.speak(speech);
     }
   </script>

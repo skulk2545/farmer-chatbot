@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title if title else "KRISHIMITRA" }}</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { margin:0; font-family: 'Segoe UI', sans-serif; background:#f4f9f4; }
+    /* Top Bar */
+    .topbar {
+      background:#4CAF50; color:white;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:12px 20px; font-size:20px; font-weight:bold;
+    }
+    .topbar-right { display:flex; align-items:center; gap:15px; }
+    .topbar button {
+      background:white; color:#4CAF50; border:none; padding:6px 12px;
+      border-radius:6px; cursor:pointer; font-weight:500;
+    }
+    .profile { width:35px; height:35px; border-radius:50%; background:#fff; }
+    /* Layout */
+    .container { display:flex; }
+    .sidebar {
+      width:180px; background:#fff; box-shadow:2px 0 5px rgba(0,0,0,0.05);
+      padding:20px; display:flex; flex-direction:column; gap:15px;
+      height:100vh; position:fixed; top:50px; left:0;
+    }
+    .sidebar a { text-decoration:none; color:#333; font-weight:500; }
+    .sidebar a:hover { color:#4CAF50; }
+    .main { margin-left:200px; padding:20px; flex:1; }
+    .card { background:#fff; padding:15px; border-radius:12px;
+            box-shadow:0 3px 6px rgba(0,0,0,0.05); margin-bottom:15px; }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div>🌾 KRISHIMITRA</div>
+    <div class="topbar-right">
+      <button>📞 Contact Officer</button>
+      <div class="profile"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a href="{{ url_for('dashboard') }}">📊 Dashboard</a>
+      <a href="{{ url_for('chat') }}">💬 Chat</a>
+      <a href="{{ url_for('market') }}">🛒 Market</a>
+      <a href="{{ url_for('weather') }}">☀ Weather</a>
+      <a href="{{ url_for('crop_info') }}">🌱 Crop Info</a>
+      <a href="{{ url_for('settings') }}">⚙ Settings</a>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="main">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</body>
+</html>
