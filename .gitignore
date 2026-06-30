@@ -7,6 +7,7 @@ __pycache__/
 env/
 venv/
 ENV/
+.pytest_cache/
 
 # Project Dataset (1.39 GB - excluded from git)
 dataset/
@@ -15,3 +16,21 @@ dataset/
 .idea/
 .vscode/
 .DS_Store
+
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+build/
+*.iml
+.coverage
+
+# SQLite Databases
+*.db
+*.sqlite3
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+

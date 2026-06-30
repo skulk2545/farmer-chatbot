@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: crop_disease_detection_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist prediction database and uploaded images on host filesystem
+      - ./backend/uploads:/app/backend/uploads
+      - ./backend/predictions.db:/app/backend/predictions.db
+    environment:
+      - LOG_LEVEL=INFO
+    restart: always

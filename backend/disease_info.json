@@ -1,0 +1,90 @@
+{
+  "Anthracnose": {
+    "description": "Anthracnose is a highly destructive fungal disease in sorghum that affects leaves, stalks, and panicles.",
+    "symptoms": "Small, circular to oval water-soaked spots on leaves that turn reddish-brown to tan with dark borders. Small black spots (acervuli) appear in the center of lesions.",
+    "causes": "Caused by the fungus Colletotrichum sublineolum. It spreads through wind-borne spores, splashing rain, and infected crop residues under warm, humid conditions.",
+    "treatment": "Apply systemic fungicides if the infection is detected early in the crop cycle.",
+    "organic_treatment": "Use neem oil sprays, bio-fungicides containing Trichoderma viride or Pseudomonas fluorescens, and practice crop rotation with non-host crops.",
+    "chemical_treatment": "Spray Carbendazim (0.1%) or Mancozeb (0.25%) at the onset of symptoms.",
+    "prevention": "Grow resistant cultivars, use certified pathogen-free seeds, destroy crop residues after harvest, and maintain proper plant spacing.",
+    "severity": "HIGH",
+    "reference": "FAO Sorghum Disease Guide / ICRISAT Plant Protection Bulletins"
+  },
+  "Cereal Grain molds": {
+    "description": "Grain mold is a complex disease affecting sorghum grain development, reducing grain quality, viability, and yield.",
+    "symptoms": "Discoloration of the grain (pink, white, grey, or black molds growing on the surface of the grains) before harvest. Grains become soft and powdery.",
+    "causes": "A fungal complex including species of Fusarium, Curvularia, Alternaria, and Bipolaris. Primarily favored by wet, humid weather during flowering and grain filling.",
+    "treatment": "Harvest crops early as soon as physiological maturity is reached to prevent mold development.",
+    "organic_treatment": "Apply bio-control agents like Pseudomonas fluorescens or Trichoderma harzianum at flowering stage.",
+    "chemical_treatment": "Spray Propiconazole (0.1%) or a mixture of Carbendazim and Mancozeb during the flowering/panicle emergence stage.",
+    "prevention": "Plant mold-resistant cultivars, schedule planting so grain maturity avoids the peak of the rainy season, and ensure quick post-harvest drying.",
+    "severity": "MEDIUM",
+    "reference": "ICRISAT Grain Mold Management Manual"
+  },
+  "Covered Kernel smut": {
+    "description": "Covered kernel smut replaces individual grains with fungal spore sacs, leading to major grain yield loss.",
+    "symptoms": "Grains are replaced by white to greyish cone-shaped sacs (sori) containing dark spores. The sacs remain intact until threshing.",
+    "causes": "Caused by the fungus Sporisorium sorghi. It is a seed-borne disease where spores infect the seedling during germination.",
+    "treatment": "Fungicidal seed treatments are highly effective and are the primary control method.",
+    "organic_treatment": "Treat seeds with hot water or biological seed coating (e.g., Trichoderma dust). Rotate crops to minimize spore load in the soil.",
+    "chemical_treatment": "Treat seeds with Thiram, Captan, or Carboxin at 2-3 g/kg of seed before sowing.",
+    "prevention": "Use certified clean seeds, treat seeds before planting, and practice deep summer plowing to bury spores.",
+    "severity": "HIGH",
+    "reference": "National Sorghum Improvement Program Publications"
+  },
+  "Head Smut": {
+    "description": "Head smut is a systemic disease that completely destroys the sorghum inflorescence, replacing the panicle with a large smut gall.",
+    "symptoms": "The entire panicle is replaced by a large, dark brown to black spore mass covered by a thin white membrane that ruptures to release spores.",
+    "causes": "Caused by the soil-borne fungus Sporisorium reilianum. Infection occurs at the seedling stage from soil-borne spores.",
+    "treatment": "Remove and burn infected plants before the smut gall ruptures. Apply soil fungicides in high-value plots.",
+    "organic_treatment": "Apply organic soil amendments (e.g., compost, biochar) to promote microbial competition against the pathogen.",
+    "chemical_treatment": "Seed treatment with systemic fungicides like Tebuconazole or Triadimenol helps reduce seedling infection.",
+    "prevention": "Grow head smut-resistant hybrids, practice crop rotation for at least 3 years, and maintain soil health.",
+    "severity": "CRITICAL",
+    "reference": "USDA Agricultural Research Service - Smut Diseases of Sorghum"
+  },
+  "Rust": {
+    "description": "Sorghum rust is a common foliage disease that reduces green leaf area, affecting photosynthesis and yield.",
+    "symptoms": "Small, raised reddish-brown pustules (uredinia) on both upper and lower leaf surfaces. Pustules rupture to release rusty-colored spores.",
+    "causes": "Caused by the fungus Puccinia purpurea. It is favored by cool, damp weather, high humidity, and heavy dew.",
+    "treatment": "Apply foliar fungicides upon the first detection of rust pustules in the lower canopy.",
+    "organic_treatment": "Use sulfur dusts or copper-based organic fungicides. Remove alternative hosts like Oxalis weed.",
+    "chemical_treatment": "Spray Mancozeb (0.2%) or Propiconazole (0.1%) when symptoms first appear.",
+    "prevention": "Plant rust-resistant cultivars, avoid high planting density to improve airflow, and eliminate weed hosts.",
+    "severity": "MEDIUM",
+    "reference": "CABI Plantwise Knowledge Bank - Sorghum Rust"
+  },
+  "healthy": {
+    "description": "The sorghum plant is healthy, showing normal leaf color, vigorous growth, and no visible signs of infection.",
+    "symptoms": "Vibrant green leaves, uniform growth, robust stalk development, and clean developing panicles.",
+    "causes": "Optimal growth conditions, balanced fertilization, proper irrigation, and effective pest/disease management.",
+    "treatment": "No active treatment required. Continue standard agricultural practices.",
+    "organic_treatment": "Maintain soil health using organic compost, bio-fertilizers, and scheduled crop scouting.",
+    "chemical_treatment": "None needed. Avoid unnecessary chemical applications.",
+    "prevention": "Regularly scout the field, maintain proper spacing, rotate crops, and optimize watering schedules.",
+    "severity": "NONE",
+    "reference": "Standard Agronomic Practices Guide"
+  },
+  "loose smut": {
+    "description": "Loose smut affects the sorghum panicle, causing premature rupture of smut galls and early spore dispersal.",
+    "symptoms": "Affected plants flower earlier. Smut galls are longer, pointed, and break open easily on the plant, exposing a dark powdery mass of spores.",
+    "causes": "Caused by the fungus Sporisorium cruentum. It is a seed-borne infection that becomes systemic within the growing plant.",
+    "treatment": "Field control relies on certified disease-free seeds and chemical seed treatment.",
+    "organic_treatment": "Employ hot water seed immersion or biological seed dressing with antagonistic bacteria.",
+    "chemical_treatment": "Treat seeds with Thiram or Carboxin-Thiram mixtures at 2 g/kg seed before planting.",
+    "prevention": "Rogue out infected plants early, plant resistant crop varieties, and practice crop rotation.",
+    "severity": "HIGH",
+    "reference": "Plant Pathology - Smuts of Sorghum Crops"
+  },
+  "Unknown": {
+    "description": "The image features could not be confidently identified as a known sorghum disease or healthy state.",
+    "symptoms": "Unrecognized patterns, blurry details, or non-sorghum elements in the submitted image.",
+    "causes": "Poor image quality, improper framing, camera defocus, or object is not a sorghum leaf/panicle.",
+    "treatment": "Take another clear, high-resolution photo under good lighting.",
+    "organic_treatment": "Not applicable.",
+    "chemical_treatment": "Not applicable.",
+    "prevention": "Follow image upload guidelines: capture close-ups of leaves/panicles, ensure focus is sharp, and avoid shadows.",
+    "severity": "LOW",
+    "reference": "App Image Submission Guidelines"
+  }
+}
