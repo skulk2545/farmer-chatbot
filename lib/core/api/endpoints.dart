@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
+
 class Endpoints {
   /// Centralized API endpoint paths relative to the base URL.
   
-  static const String baseDefaultUrl = "http://10.0.2.2:8000"; // Android Emulator loopback
+  static String get baseDefaultUrl => kIsWeb ? "http://127.0.0.1:8000" : "http://10.0.2.2:8000"; // Web vs Android Emulator loopback
   
   static const String health = "/";
   static const String predict = "/predict";
@@ -16,3 +18,4 @@ class Endpoints {
   static const String historyV1 = "/api/v1/history";
   static const String statsV1 = "/api/v1/stats";
 }
+

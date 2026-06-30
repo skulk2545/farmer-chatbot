@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 import 'package:jowar_disease_detection/core/api/api_service.dart';
@@ -13,18 +13,17 @@ class PredictionRepository {
   /// Reports progress via [onProgress].
   /// On success, automatically caches the result in the local history Box.
   Future<PredictionModel> uploadAndDiagnose({
-    required File imageFile,
+    required XFile imageFile,
     void Function(int sent, int total)? onProgress,
   }) async {
     LoggingService.info("Uploading image to backend...", tag: "PredictionRepository");
     
-    // Parse filename without 'path' package to prevent import warning
-    final String filename = imageFile.path.split(Platform.pathSeparator).last;
+    final String filename = imageFile.name;
 
     try {
-      // 1. Prepare multipart file payload
-      final MultipartFile multipartFile = await MultipartFile.fromFile(
-        imageFile.path,
+      // 1. Prepare multipart file payload from bytes for cross-platform compatibility
+      final MultipartFile multipartFile = MultipartFile.fromBytes(
+        await imageFile.readAsBytes(),
         filename: filename,
       );
 

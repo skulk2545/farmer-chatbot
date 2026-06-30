@@ -1,3 +1,5 @@
+import 'dart:io' as io;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -149,10 +151,22 @@ class _PredictionScreenState extends State<PredictionScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppStyles.radiusMedium),
                   boxShadow: AppStyles.cardShadow(context),
-                  image: DecorationImage(
-                    image: FileImage(state.selectedImage!),
-                    fit: BoxFit.cover,
-                  ),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(AppStyles.radiusMedium),
+                  child: kIsWeb
+                      ? Image.network(
+                          state.selectedImage!.path,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: 280,
+                        )
+                      : Image.file(
+                          io.File(state.selectedImage!.path),
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: 280,
+                        ),
                 ),
               ),
               const SizedBox(height: AppStyles.lg),

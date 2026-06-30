@@ -1,15 +1,15 @@
-import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:jowar_disease_detection/core/services/logging_service.dart';
 
 class ImageUtils {
   /// Validates if the selected file has a supported format (.jpg, .jpeg, .png).
-  static bool validateExtension(String filePath) {
-    final path = filePath.toLowerCase();
-    return path.endsWith('.jpg') || path.endsWith('.jpeg') || path.endsWith('.png');
+  static bool validateExtension(String fileName) {
+    final name = fileName.toLowerCase();
+    return name.endsWith('.jpg') || name.endsWith('.jpeg') || name.endsWith('.png');
   }
 
   /// Checks if the file size is under the maximum threshold (10 MB).
-  static Future<bool> validateSize(File file) async {
+  static Future<bool> validateSize(XFile file) async {
     try {
       final int length = await file.length();
       // 10MB in bytes = 10 * 1024 * 1024
@@ -23,13 +23,14 @@ class ImageUtils {
   }
 
   /// Verifies image integrity by reading basic bytes to check if it's readable.
-  static Future<bool> validateIntegrity(File file) async {
+  static Future<bool> validateIntegrity(XFile file) async {
     try {
-      final List<int> headerBytes = await file.openRead(0, 10).first;
-      return headerBytes.isNotEmpty;
+      final bytes = await file.readAsBytes();
+      return bytes.isNotEmpty;
     } catch (e) {
       LoggingService.error("Image file corrupted or unreadable", tag: "ImageUtils", error: e);
       return false;
     }
   }
 }
+

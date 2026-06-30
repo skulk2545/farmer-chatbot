@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:jowar_disease_detection/core/utils/image_utils.dart';
@@ -10,13 +9,13 @@ class PredictionProvider extends ChangeNotifier {
   final PredictionRepository _repository = PredictionRepository();
   final ImagePicker _picker = ImagePicker();
 
-  File? _selectedImage;
+  XFile? _selectedImage;
   bool _isLoading = false;
   double _uploadProgress = 0.0;
   PredictionModel? _predictionResult;
   String? _errorMessage;
 
-  File? get selectedImage => _selectedImage;
+  XFile? get selectedImage => _selectedImage;
   bool get isLoading => _isLoading;
   double get uploadProgress => _uploadProgress;
   PredictionModel? get predictionResult => _predictionResult;
@@ -44,17 +43,15 @@ class PredictionProvider extends ChangeNotifier {
         return;
       }
 
-      final File file = File(pickedFile.path);
-
-      // 1. Validate File Extension
-      if (!ImageUtils.validateExtension(file.path)) {
+      // 1. Validate File Extension (check against name, which contains actual file extension even on web)
+      if (!ImageUtils.validateExtension(pickedFile.name)) {
         _errorMessage = "Unsupported file format. Please upload JPG, JPEG or PNG.";
         notifyListeners();
         return;
       }
 
       // 2. Validate File Size (<10 MB)
-      final bool isSizeOk = await ImageUtils.validateSize(file);
+      final bool isSizeOk = await ImageUtils.validateSize(pickedFile);
       if (!isSizeOk) {
         _errorMessage = "File size exceeds 10MB limit. Please upload a smaller image.";
         notifyListeners();
@@ -62,14 +59,14 @@ class PredictionProvider extends ChangeNotifier {
       }
 
       // 3. Validate Integrity (check corruption)
-      final bool isIntact = await ImageUtils.validateIntegrity(file);
+      final bool isIntact = await ImageUtils.validateIntegrity(pickedFile);
       if (!isIntact) {
         _errorMessage = "The selected image is corrupted or unreadable.";
         notifyListeners();
         return;
       }
 
-      _selectedImage = file;
+      _selectedImage = pickedFile;
       notifyListeners();
     } catch (e) {
       _errorMessage = "Failed to pick image: ${e.toString()}";
@@ -123,3 +120,4 @@ class PredictionProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
+
